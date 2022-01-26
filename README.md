@@ -8,5 +8,6 @@ Conditions:
   4. More cities should be added and persisted in a MongoDB.
   5. **Hint**: Batch requests, request caching
  
-Use Python 3 and Flask >> htps://palletsprojects.com/p/flask/, htps://www.python.org, 
+Use Python 3 and Flask >> htps://palletsprojects.com/p/flask/, htps://www.python.org
+
 Use mongoDB to persist data >> htps://www.mongodb.com/

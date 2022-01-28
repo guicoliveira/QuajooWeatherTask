@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response, request
+from flask import Flask, jsonify, request
 from flask_caching import Cache
 from pymongo import MongoClient
 import requests
@@ -78,7 +78,11 @@ def batch_request():
     responses = []
 
     for req in batch_requests:
-        city = req['city']
+        try:
+            city = req['city']
+        except KeyError as e:
+            return (f'Invalid field: {req}', 400)
+
         response = get_city_temp(city)
         responses.append({'status': response[1], 'response': response[0]})
 

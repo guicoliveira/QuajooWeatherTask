@@ -38,7 +38,7 @@ def add_city():
     except json.JSONDecodeError as e:
         return make_response({'error': f'invalid request body: {request.data}'}, 400)
     except KeyError as e:
-        return make_response({'error': f'invalid request body: {request.data}'}, 400)
+        return make_response({'error': f'invalid key: {json.loads(request.data)}'}, 400)
 
     city = City.objects(name=city_name).first()
     if not city:
